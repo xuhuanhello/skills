@@ -31,9 +31,14 @@ description: >
 2. 全局级: `~/.pi/agent/skills/<skill-name>/`
 
 如果不存在，去 `~/.cc-switch/skills/<skill-name>/` 查找源。
-- 找到 → 提示用户："发现 <skill-name> 源文件在 ~/.cc-switch/skills/，是否软链到当前项目？"
-  - 是 → `ln -s ~/.cc-switch/skills/<skill-name> .pi/skills/<skill-name>`
+- 找到 → 提示用户："发现 <skill-name> 源文件在 ~/.cc-switch/skills/，是否软链到当前 AI Agent 的全局 skills 目录？"
+  - 是 → `ln -s ~/.cc-switch/skills/<skill-name> ~/.pi/agent/skills/<skill-name>`（Pi agent 示例）
   - 否 → 终止，告知无法继续
+
+**注意**：始终软链到 agent 全局 skills 目录，而非项目级目录。各 agent 路径：
+- Pi: `~/.pi/agent/skills/`
+- Claude Code: `~/.claude/skills/`（或 CLAUDE.md 引用）
+- 其他 agent: 参照对应 agent 的全局 skill 配置路径
 
 ### Step 2: 检测上游是否已修复
 
@@ -68,7 +73,7 @@ bash ~/.cc-switch/skills/skill-hotfix/scripts/check_fix.sh <skill-name> <bug-id>
 1. 创建 `~/.cc-switch/skills/<skill-name>-hotfix/` 目录
 2. 生成 `SKILL.md`（描述、触发条件、依赖关系）
 3. 分析原 skill 的 bug 脚本，生成修复版 `*_hotfix.sh`
-4. 软链 hotfix skill 到当前项目：`ln -s ~/.cc-switch/skills/<skill-name>-hotfix .pi/skills/<skill-name>-hotfix`
+4. 软链 hotfix skill 到 agent 全局 skills 目录：`ln -s ~/.cc-switch/skills/<skill-name>-hotfix ~/.pi/agent/skills/<skill-name>-hotfix`
 
 ### Step 4: 执行
 
