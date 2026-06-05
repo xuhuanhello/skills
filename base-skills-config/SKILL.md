@@ -64,7 +64,7 @@ The body of the generated routing skill should contain:
 
 1. Check if `claude` CLI is available: run `which claude` or `command -v claude`
 2. If available: delegate the user's request to Claude Code by running:
-   `claude -p "Use the skill-creator skill to: [user's original request]"`
+   `claude --add-dir "$(pwd)" --allowedTools "Write,Bash,Edit,Read" -p "Use the skill-creator skill to: [user's original request]"`
    Return the output to the user.
 3. If NOT available: read and follow the instructions in `~/.agents/skills/agent-skill-creator/SKILL.md` to handle the request inline.
 ```
