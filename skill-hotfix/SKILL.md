@@ -1,6 +1,6 @@
 ---
 name: skill-hotfix
-description:"为已有的有 bug 的 skill 创建临时热修复（hotfix）。自动检测目标 skill 是否存在、是否已修复；未修复则生成 *_hotfix.sh 替代脚本；上游修复后自动清理并提示废弃。触发词："hotfix skill"、"修复 skill"、"给 XX skill 打补丁"、"XX skill 有 bug"。
+description: "为已有的有 bug 的 skill 创建临时热修复（hotfix）。自动检测目标 skill 是否存在、是否已修复；未修复则生成 *_hotfix.sh 替代脚本；上游修复后自动清理并提示废弃。触发词："hotfix skill"、"修复 skill"、"给 XX skill 打补丁"、"XX skill 有 bug"。
 ---
 
 # skill-hotfix — 临时热修复 Skill
